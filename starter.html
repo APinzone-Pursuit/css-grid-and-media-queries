@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CSS Grid + Media Queries</title>
+  <style type="text/css">
+    * {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      font-family: sans-serif;
+      margin: 0;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 15px;
+    }
+
+    a {
+      color: #111;
+      outline: 0;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    figure {
+      border-radius: 5px;
+      margin: 0;
+      overflow: hidden;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    header,
+    main,
+    aside,
+    footer {
+      border: 2px solid rgba(0, 0, 0, 0.1);
+      border-radius: 10px;
+      padding: 15px;
+    }
+
+    #page-title {
+      background-color: aquamarine;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    #page-nav ul {
+      display: flex;
+      list-style: none;
+      margin: 20px 0 0 0;
+      padding: 0;
+    }
+
+    #page-nav li {
+      padding: 0 25px;
+    }
+
+    #page-nav a {
+      color: rgb(11, 73, 52);
+      font-size: 14px;
+      font-weight: 600;
+      outline: 0;
+      text-decoration: none;
+      text-transform: uppercase;
+    }
+
+    #page-nav a:hover,
+    #page-nav a:focus {
+      text-decoration: 2px underline wavy;
+    }
+
+    .logo-text {
+      color: rgb(11, 73, 52);
+      font-size: 32px;
+    }
+
+    #page-content {
+      background-color: rgba(255, 127, 80, 0.75);
+      color: #111;
+      font-size: 18px;
+      line-height: 1.4;
+    }
+
+    #page-content h1 {
+      font-size: 32px;
+      margin: 0 0 15px 0;
+    }
+
+    #page-content figure {
+      height: 150px;
+      margin: 15px 0;
+    }
+
+    #page-sidebar-left {
+      background-color: darkkhaki;
+    }
+
+    #page-sidebar-right {
+      background-color: deepskyblue;
+    }
+
+    #page-sidebar-left ul,
+    #page-sidebar-right ul {
+      padding-left: 10px;
+    }
+
+    #page-sidebar-left li,
+    #page-sidebar-right li {
+      margin-bottom: 10px;
+    }
+
+    #page-footer {
+      background-color: violet;
+      color: rgb(81, 2, 81);
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+    }
+
+    #page-footer section {
+      flex: 1;
+    }
+
+    #page-footer h4 {
+      text-align: center;
+    }
+
+    #page-footer ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    #page-footer li {
+      padding: 5px;
+      text-align: center;
+    }
+
+    #page-footer p {
+      margin: 30px 0 0 0;
+      text-align: center;
+      text-decoration: uppercase;
+      width: 100%;
+    }
+
+    #page-footer a {
+      color: rgb(81, 2, 81);
+      font-size: 14px;
+      text-decoration: none;
+    }
+  </style>
+</head>
+
+<body>
+  <header id="page-title">
+    <span class="logo-text">My<strong>Company</strong>Name</span>
+    <nav id="page-nav" class="navigation">
+      <ul>
+        <li>
+          <a href="#">Home</a>
+        </li>
+        <li>
+          <a href="#">About</a>
+        </li>
+        <li>
+          <a href="#">Contact</a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+  <main id="page-content">
+    <h1>Welcome to MyCompanyName!</h1>
+    <figure>
+      <img src="./images/city-photo.jpg" alt="A wide shot of an all glass building." />
+    </figure>
+    <p>At [Company Name], we're passionate about [Product/Service] and committed to providing top-notch [Quality/Experience]. We understand that our customers' needs and preferences are unique, which is why we offer a wide range of [Products/Services] to cater to different requirements. Our team of experts is dedicated to providing personalized solutions that fit your specific needs, ensuring that you get the best value for your money.</p>
+
+    <p>We believe in building long-lasting relationships with our customers. Our commitment to excellence extends beyond the products and services we offer. We take pride in providing exceptional customer service and support to our clients. Our team is always ready to answer your questions, provide guidance, and ensure that you're satisfied with our services. Trust us to be your reliable partner, and let us help you achieve your goals. Explore our website to learn more about what we do, and feel free to contact us if you have any questions. We look forward to serving you!</p>
+  </main>
+  <aside id="page-sidebar-left">
+    <h3>Latest Travel Posts</h3>
+    <figure>
+      <img src="./images/travel-photo.jpg" alt="A Volkswagen bus traveling on the open road." />
+    </figure>
+    <ul>
+      <li><a href="#">Top 10 destinations to visit for a beach vacation</a></li>
+      <li><a href="#">How to travel the world on a budget</a></li>
+      <li><a href="#">A beginner's guide to solo travel</a></li>
+      <li><a href="#">Hidden gems to explore in Europe</a></li>
+      <li><a href="#">Best hiking trails in the USA</a></li>
+      <li><a href="#">Tips for traveling with kids</a></li>
+      <li><a href="#">Unique accommodation options for your next trip</a></li>
+      <li><a href="#">Experiencing the local cuisine: a food lover's guide to Asia</a></li>
+      <li><a href="#">A guide to sustainable travel and reducing your carbon footprint</a></li>
+      <li><a href="#">The best travel apps to download for your next trip</a></li>
+    </ul>
+  </aside>
+  <aside id="page-sidebar-right">
+    <h3>Latest Fitness Posts</h3>
+    <figure>
+      <img src="./images/fitness-photo.jpg" alt="A young woman doing crunches." />
+    </figure>
+    <ul>
+      <li><a href="#">Top 10 workouts for burning fat and building muscle</a></li>
+      <li><a href="#">How to stay motivated to exercise regularly</a></li>
+      <li><a href="#">The benefits of yoga for mental and physical health</a></li>
+      <li><a href="#">Beginner's guide to strength training</a></li>
+      <li><a href="#">Healthy meal prep ideas for the week</a></li>
+      <li><a href="#">10-minute workouts for a busy schedule</a></li>
+      <li><a href="#">The science behind HIIT and its effectiveness</a></li>
+      <li><a href="#">How to improve your flexibility and prevent injury</a></li>
+      <li><a href="#">Top 5 supplements for boosting your fitness results</a></li>
+      <li><a href="#">Mind-body workouts for stress relief and relaxation</a></li>
+    </ul>
+  </aside>
+  <footer id="page-footer">
+    <section>
+      <h4>Section Title</h4>
+      <ul class="footer-links">
+        <li><a href="#">Footer Link</a></li>
+        <li><a href="#">Footer Link</a></li>
+        <li><a href="#">Footer Link</a></li>
+        <li><a href="#">Footer Link</a></li>
+        <li><a href="#">Footer Link</a></li>
+      </ul>
+    </section>
+    <section>
+      <h4>Section Title</h4>
+      <ul class="footer-links">
+        <li><a href="#">Footer Link</a></li>
+        <li><a href="#">Footer Link</a></li>
+        <li><a href="#">Footer Link</a></li>
+        <li><a href="#">Footer Link</a></li>
+        <li><a href="#">Footer Link</a></li>
+      </ul>
+    </section>
+    <section>
+      <h4>Section Title</h4>
+      <ul class="footer-links">
+        <li><a href="#">Footer Link</a></li>
+        <li><a href="#">Footer Link</a></li>
+        <li><a href="#">Footer Link</a></li>
+        <li><a href="#">Footer Link</a></li>
+        <li><a href="#">Footer Link</a></li>
+      </ul>
+    </section>
+    <section>
+      <h4>Section Title</h4>
+      <ul class="footer-links">
+        <li><a href="#">Footer Link</a></li>
+        <li><a href="#">Footer Link</a></li>
+        <li><a href="#">Footer Link</a></li>
+        <li><a href="#">Footer Link</a></li>
+        <li><a href="#">Footer Link</a></li>
+      </ul>
+    </section>
+
+    <p>Thanks for visiting! Copyright &copy; MyCompanyName, {Year}.</p>
+  </footer>
+</body>
+
+</html>
